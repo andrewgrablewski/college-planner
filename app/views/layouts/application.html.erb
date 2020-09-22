@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CollegePlanner</title>
+    <title>CCNY Planner</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,76 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_path %>
-     <%= link_to 'New', courses_new_path %>
-      <%= link_to 'About', about_path %>
+  <header>
+  <ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+  <ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+    <nav>
+    <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="#" class="brand-logo right">The City College of New York</a>
+       <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+         <i class="material-icons">menu</i></a>
+
+         <ul class="sidenav" id="mobile-demo">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Enrollment</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
+          <i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><%= link_to "Courses", root_path %></li>
+        <li><%= link_to "Enrollment", courses_new_path %></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account
+          <i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+
+    </div>
+    </div>
+  </nav>
+</header>
+
+  <main>
+     <div class="container">
     <%= yield %>
+    </div>
+    </main>
+
+   <footer class="page-footer blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">The City College of New York</h5>
+                <p class="grey-text text-lighten-4">The future of development training</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Information</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2020 Copyright Andrew Grablewski
+            <a class="grey-text text-lighten-4 right" href="#!">About</a>
+            </div>
+          </div>
+        </footer>
+      
   </body>
 </html>
