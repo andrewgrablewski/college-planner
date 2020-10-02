@@ -1,41 +1,37 @@
 <header>
   <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li><%= session_link %></li>
 </ul>
+
   <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li><%= session_link %></li>
+
 </ul>
 
-    <nav>
+
+
+  <nav>
     <div class="nav-wrapper">
-    <div class="container">
-      <a href="#" class="brand-logo left"><%= image_tag("logo-desktop.png") %> </a>
-       <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-         <i class="material-icons">menu</i></a>
-
-         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Enrollment</a></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
+      <div class="container">
+      <a href="#!" class="brand-logo"><%= image_tag("logo-desktop.png") %> </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Courses</a></li>
+        <li><a href="collapsible.html">Enrollment</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
           <i class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Courses", root_path %></li>
+  <ul class="sidenav" id="mobile-demo">
+    <li><%= link_to "Courses", root_path %></li>
         <li><%= link_to "Enrollment", courses_new_path %></li>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account
           <i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
+  </ul>
 
-    </div>
-    </div>
-  </nav>
   <% flash.each do |key, message| %>
     <div class="container">
       <div class="sign-up-form">
