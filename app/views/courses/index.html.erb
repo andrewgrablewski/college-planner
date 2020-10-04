@@ -10,13 +10,15 @@
   <% @courses.each do |course| %>
     <div class="col s6 m6">
       <div class="card">
-        <div class="card-content white-text">
+        <div class="card-content white-text" id="course-info">
           <span class="card-title"><%= course.short_name %>:
           <%= course.name %></span>
           <p><%= course.description %></p>
         </div>
         <div class="card-action">
-          <a href="#">Enroll</a>
+          <% if logged_in? && !(current_user.courses.include?(course)) %>
+          <%= link_to 'Enroll', course_enroll_path(course_id: course.id), method: :post %>
+          <% end %>
           <a href="#">Info</a>
         </div>
       </div>
