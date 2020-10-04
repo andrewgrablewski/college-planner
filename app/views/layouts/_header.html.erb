@@ -13,11 +13,13 @@
   <nav>
     <div class="nav-wrapper">
       <div class="container">
-      <a href="#!" class="brand-logo"><%= image_tag("logo-desktop.png") %> </a>
+      <a href="/" class="brand-logo"><%= image_tag("logo-desktop.png") %> </a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Courses</a></li>
-        <li><a href="collapsible.html">Enrollment</a></li>
+        <li><%= link_to "Courses", root_path %></li>
+        <% if logged_in? %>
+        <li><%= link_to "Students", students_path %></li>
+        <% end %>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
           <i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
@@ -27,7 +29,9 @@
 
   <ul class="sidenav" id="mobile-demo">
     <li><%= link_to "Courses", root_path %></li>
-        <li><%= link_to "Enrollment", courses_new_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Students", students_path %></li>
+      <% end %>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account
           <i class="material-icons right">arrow_drop_down</i></a></li>
   </ul>
